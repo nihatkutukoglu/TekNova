@@ -249,7 +249,7 @@ const servicesData: ServiceData[] = [
     benefit: "İş süreçleriniz daha düzenli, ölçülebilir ve kolay yönetilebilir hale gelir.",
     tags: ["Dashboard", "Admin Panel", "API", "Custom Software"],
     icon: <Code2 className="w-8 h-8" />,
-    featured: true,
+    featured: false,
     mockup: (
       <div className="w-full h-56 lg:h-full min-h-[14rem] bg-slate-900 rounded-xl border border-slate-700 overflow-hidden relative group-hover:border-blue-500 transition-all duration-500 shadow-inner group-hover:shadow-blue-900/20 flex">
         <div className="w-12 lg:w-16 border-r border-slate-800 bg-slate-900/80 p-2 lg:p-3 flex flex-col items-center space-y-3 lg:space-y-4">

@@ -23,7 +23,7 @@ export default function Projects() {
   ];
 
   interface ProjectData {
-    id: number;
+    id?: number;
     title: string;
     description: string;
     icon: React.ReactNode;
