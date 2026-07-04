@@ -1,8 +1,61 @@
 'use client';
 
-import { MessageSquare, Mail } from 'lucide-react';
+import { useState } from 'react';
+import { MessageSquare, Mail, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    // Form doğrulama (basit)
+    if (!formData.name || !formData.phone || !formData.message) {
+      setStatus('error');
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '93812a1a-9538-4d86-85ba-cb6326722eda', 
+          ...formData,
+          subject: 'TekNova - Yeni İletişim Formu Talebi',
+          from_name: formData.name
+        })
+      });
+
+      if (response.status === 200) {
+        setStatus('success');
+        setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
+      }
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
+  };
+
   return (
     <section id="contact" className="py-32 lg:py-40 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,24 +109,32 @@ export default function Contact() {
 
           {/* Clean Form */}
           <div className="lg:col-span-6 lg:col-start-7">
-            <div className="bg-slate-50 p-10 sm:p-14 rounded-[3rem] border border-slate-100">
-              <form className="space-y-8">
+            <div className="bg-slate-50 p-10 sm:p-14 rounded-[3rem] border border-slate-100 relative">
+              <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Ad Soyad</label>
+                    <label htmlFor="name" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Ad Soyad *</label>
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      disabled={status === 'loading'}
+                      className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg disabled:opacity-50"
                       placeholder="Adınız"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Telefon</label>
+                    <label htmlFor="phone" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Telefon *</label>
                     <input
                       type="tel"
                       id="phone"
-                      className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      disabled={status === 'loading'}
+                      className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg disabled:opacity-50"
                       placeholder="05XX"
                     />
                   </div>
@@ -84,7 +145,10 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg"
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={status === 'loading'}
+                    className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg disabled:opacity-50"
                     placeholder="ornek@sirket.com"
                   />
                 </div>
@@ -93,32 +157,50 @@ export default function Contact() {
                   <label htmlFor="service" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">İhtiyacınız</label>
                   <select
                     id="service"
-                    className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg appearance-none"
+                    value={formData.service}
+                    onChange={handleChange}
+                    disabled={status === 'loading'}
+                    className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg appearance-none disabled:opacity-50"
                   >
                     <option value="">Seçiniz</option>
-                    <option value="web">Web Sitesi</option>
-                    <option value="software">Özel Yazılım / Panel</option>
-                    <option value="other">Diğer</option>
+                    <option value="Web Sitesi">Web Sitesi</option>
+                    <option value="Özel Yazılım / Panel">Özel Yazılım / Panel</option>
+                    <option value="Google & Haritalar">Google & Haritalar</option>
+                    <option value="Dijital Otomasyon">Dijital Otomasyon</option>
+                    <option value="Diğer">Diğer</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Proje Detayları</label>
+                  <label htmlFor="message" className="block text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">Proje Detayları *</label>
                   <textarea
                     id="message"
+                    required
                     rows={4}
-                    className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg resize-none"
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={status === 'loading'}
+                    className="w-full px-6 py-5 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white text-lg resize-none disabled:opacity-50"
                     placeholder="Kısaca bahsedin..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-5 px-8 rounded-2xl transition-all"
-                  onClick={(e) => e.preventDefault()}
+                  disabled={status === 'loading' || status === 'success'}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white font-bold text-lg py-5 px-8 rounded-2xl transition-all flex items-center justify-center space-x-2"
                 >
-                  Gönder
+                  {status === 'idle' && <span>Gönder</span>}
+                  {status === 'loading' && <><Loader2 className="w-5 h-5 animate-spin" /><span>Gönderiliyor...</span></>}
+                  {status === 'success' && <><CheckCircle2 className="w-5 h-5" /><span>Talebiniz Alındı!</span></>}
+                  {status === 'error' && <><AlertCircle className="w-5 h-5" /><span>Hata Oluştu, Tekrar Deneyin</span></>}
                 </button>
+                
+                {status === 'success' && (
+                  <p className="text-emerald-600 text-sm font-semibold text-center mt-4">
+                    Mesajınız başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.
+                  </p>
+                )}
               </form>
             </div>
           </div>
