@@ -16,12 +16,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Ana Sayfa', href: '#home' },
-    { name: 'Hizmetler', href: '#services' },
-    { name: 'Süreç', href: '#process' },
-    { name: 'Projeler', href: '#projects' },
-    { name: 'Paketler', href: '#packages' },
-    { name: 'Hakkımızda', href: '#about' },
+    { name: 'Ana Sayfa', href: '/' },
+    { name: 'Hizmetler', href: '/#services' },
+    { name: 'Süreç', href: '/#process' },
+    { name: 'Projeler', href: '/#projects' },
+    { name: 'Paketler', href: '/#packages' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   return (
@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter">
+            <a href="/" className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter">
               Tek<span className="text-blue-600">Nova.</span>
             </a>
           </div>
@@ -54,7 +54,7 @@ export default function Navbar() {
             ))}
             <div className="flex items-center pl-6 border-l border-slate-200">
               <a
-                href="#contact"
+                href="/#contact"
                 className="bg-slate-900 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors duration-300"
               >
                 Projenizi Konuşalım
@@ -90,7 +90,7 @@ export default function Navbar() {
             ))}
             <div className="pt-4 mt-4 border-t border-slate-100">
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-center bg-slate-900 text-white px-6 py-4 rounded-xl font-semibold text-lg"
               >

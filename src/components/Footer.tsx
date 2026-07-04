@@ -1,9 +1,10 @@
 export default function Footer() {
   const links = [
-    { name: 'Ana Sayfa', href: '#home' },
-    { name: 'Hizmetler', href: '#services' },
-    { name: 'Projeler', href: '#projects' },
-    { name: 'Hakkımızda', href: '#about' },
+    { name: 'Ana Sayfa', href: '/' },
+    { name: 'Hizmetler', href: '/#services' },
+    { name: 'Projeler', href: '/#projects' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Hakkımızda', href: '/#about' },
   ];
 
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800 pb-16 mb-12">
           
           <div className="mb-10 md:mb-0">
-            <a href="#home" className="text-4xl font-black tracking-tighter block mb-4">
+            <a href="/" className="text-4xl font-black tracking-tighter block mb-4">
               Tek<span className="text-blue-500">Nova.</span>
             </a>
             <p className="text-slate-400 text-xl font-light max-w-sm">

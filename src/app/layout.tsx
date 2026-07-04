@@ -10,6 +10,23 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "TekNova | Yazılım Danışmanlığı ve Dijital Dönüşüm",
   description: "Modern yazılım çözümleriyle işletmenizi dijitale taşıyoruz. Özel yazılım, web sitesi ve otomasyon hizmetleri.",
+  openGraph: {
+    title: "TekNova | Yazılım Danışmanlığı ve Dijital Dönüşüm",
+    description: "Modern yazılım çözümleriyle işletmenizi dijitale taşıyoruz. Özel yazılım, web sitesi ve otomasyon hizmetleri.",
+    url: 'https://teknovaweb.com.tr',
+    siteName: 'TekNova',
+    locale: 'tr_TR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "TekNova | Dijital Dönüşüm",
+    description: "İşletmeniz için özel yazılım ve web çözümleri.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 export default function RootLayout({
