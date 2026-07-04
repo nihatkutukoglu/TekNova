@@ -10,6 +10,7 @@ export interface BlogPost {
     name: string;
     role: string;
   };
+  imageUrl: string;
   category: string;
   tags: string[];
 }
@@ -46,6 +47,7 @@ Yerel işletmeler için harita optimizasyonunu profesyonelce yönetiyor, yorum s
       name: "TekNova Ekibi",
       role: "SEO & Dijital Pazarlama",
     },
+    imageUrl: "/images/blog/google-maps.png",
     category: "Yerel SEO",
     tags: ["Google Maps", "SEO", "Dijital Pazarlama", "Rehber"],
   },
@@ -82,6 +84,7 @@ Sosyal medya insanlarla tanıştığınız bir fuar alanı, web siteniz ise onla
       name: "TekNova Ekibi",
       role: "Web Geliştirme",
     },
+    imageUrl: "/images/blog/website-2026.png",
     category: "Web Geliştirme",
     tags: ["Web Tasarım", "İşletme Büyütme", "Kurumsal Kimlik"],
   },
@@ -118,6 +121,7 @@ Biz, hazır (ve kullanamayacağınız yüzlerce özelliği olan) karmaşık sist
       name: "TekNova Ekibi",
       role: "Yazılım Mühendisliği",
     },
+    imageUrl: "/images/blog/automation.png",
     category: "Özel Yazılım",
     tags: ["Otomasyon", "CRM", "Verimlilik"],
   }

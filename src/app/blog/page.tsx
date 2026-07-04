@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blog';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Blog | TekNova Dijital Ajans',
@@ -42,10 +43,16 @@ export default function BlogList() {
                 href={`/blog/${post.slug}`}
                 className="group bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
               >
-                {/* Image Placeholder with Gradient */}
-                <div className="h-48 w-full bg-gradient-to-br from-blue-100 to-slate-100 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                  <div className="absolute bottom-4 left-4">
+                {/* Cover Image */}
+                <div className="h-56 w-full relative overflow-hidden bg-slate-100">
+                  <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                  <div className="absolute bottom-4 left-4 z-10">
                     <span className="inline-block py-1 px-3 rounded-full bg-white/90 backdrop-blur-sm text-slate-900 text-xs font-bold tracking-wide shadow-sm">
                       {post.category}
                     </span>

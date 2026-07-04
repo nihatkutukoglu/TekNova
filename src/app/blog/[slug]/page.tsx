@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blog';
@@ -82,6 +83,19 @@ export default function BlogPostDetail({ params }: Props) {
             </div>
           </div>
         </header>
+
+        {/* Cover Image */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <div className="w-full aspect-[21/9] relative rounded-3xl overflow-hidden shadow-lg border border-slate-100">
+            <Image
+              src={post.imageUrl}
+              alt={post.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
 
         {/* Content Section using Tailwind Typography */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
