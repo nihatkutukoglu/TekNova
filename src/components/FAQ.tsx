@@ -13,10 +13,6 @@ const faqs = [
     answer: "Yerel SEO ve harita optimizasyonu organik bir süreçtir. İşletme profilinizi en güncel Google algoritmalarına göre optimize ediyor, yorum stratejinizi kuruyoruz. Düzenli ve doğru yönetimle kısa sürede rakiplerinizin önüne geçerek telefon ve ziyaretçi trafiğinizin ciddi oranda arttığını göreceksiniz."
   },
   {
-    question: "Ödeme süreçleri nasıl işliyor?",
-    answer: "Projelerimizde genellikle ödemenin %50'si proje başlangıcında, kalan %50'si ise proje tesliminde ve onayınız alındıktan sonra tahsil edilir. Aylık danışmanlık veya yorum yönetimi paketlerimizde ise düzenli aylık faturalandırma yapılır."
-  },
-  {
     question: "Sadece web sitesi mi yapıyorsunuz, süreç sonrasında destek var mı?",
     answer: "Asla 'siteyi yapıp bırakmıyoruz'. İşletmenizin dijitaldeki teknoloji ortağı oluyoruz. Proje tesliminden sonra da olası hatalara karşı teknik destek sağlıyor, isterseniz aylık bakım paketlerimizle sisteminizin 7/24 güncel ve güvende kalmasını sağlıyoruz."
   },

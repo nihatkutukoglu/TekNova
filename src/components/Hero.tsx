@@ -1,4 +1,4 @@
-import { ArrowRight, Play, CheckCircle2, ChevronRight, Star } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle2, ChevronRight, Star, Layout, Activity, UserCircle2 } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function Hero() {
