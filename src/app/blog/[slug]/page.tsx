@@ -8,12 +8,13 @@ import { blogPosts } from '@/data/blog';
 import { ArrowLeft, Calendar, Clock, User, Tag } from 'lucide-react';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Dinamik SEO Meta Verileri
-export function generateMetadata({ params }: Props): Metadata {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
   
   if (!post) {
     return {
@@ -34,8 +35,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function BlogPostDetail({ params }: Props) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPostDetail({ params }: Props) {
+  const resolvedParams = await params;
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
 
   if (!post) {
     notFound();
