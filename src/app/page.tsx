@@ -6,6 +6,7 @@ import Process from '@/components/Process';
 import Projects from '@/components/Projects';
 import Packages from '@/components/Packages';
 import About from '@/components/About';
+import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Projects />
       <Packages />
       <About />
+      <FAQ />
       <Contact />
       <Footer />
     </main>
