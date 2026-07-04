@@ -1,4 +1,5 @@
-import { ArrowRight, Layout, Activity, UserCircle2 } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle2, ChevronRight, Star } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 export default function Hero() {
   return (
@@ -8,31 +9,47 @@ export default function Hero() {
           
           {/* Text Content */}
           <div className="lg:col-span-7 max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
-              İşletmeniz için <br />
-              <span className="text-blue-600">güvenilir yazılım</span> <br />
-              ortağı.
-            </h1>
+            <ScrollReveal delay={0.1}>
+              <div className="inline-flex items-center space-x-2 bg-blue-50/80 backdrop-blur-sm border border-blue-100/50 py-2 px-4 rounded-full mb-8">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
+                <span className="text-sm font-bold tracking-wide text-blue-700 uppercase">2024 Dijital Dönüşüm Partneriniz</span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
+                İşletmeniz için <br />
+                <span className="text-blue-600">güvenilir yazılım</span> <br />
+                ortağı.
+              </h1>
+            </ScrollReveal>
             
-            <p className="text-xl sm:text-2xl text-slate-600 mb-10 leading-relaxed font-light max-w-2xl">
-              TekNova, küçük ve orta ölçekli işletmeler için web siteleri, özel yazılım sistemleri ve işletme otomasyonları geliştiren çevik bir teknoloji ekibidir. Teknik karmaşayı sadeleştirir, işletmenize özel sürdürülebilir çözümler üretiriz.
-            </p>
+            <ScrollReveal delay={0.3}>
+              <p className="text-xl sm:text-2xl text-slate-600 mb-10 leading-relaxed font-light max-w-2xl">
+                TekNova, küçük ve orta ölçekli işletmeler için web siteleri, özel yazılım sistemleri ve işletme otomasyonları geliştiren çevik bir teknoloji ekibidir. Teknik karmaşayı sadeleştirir, işletmenize özel sürdürülebilir çözümler üretiriz.
+              </p>
+            </ScrollReveal>
             
-            <div className="flex flex-col sm:flex-row gap-5">
-              <a
-                href="#contact"
-                className="inline-flex justify-center items-center px-8 py-4 text-lg font-semibold rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              >
-                Projenizi Konuşalım
-              </a>
-              <a
-                href="#services"
-                className="inline-flex justify-center items-center px-8 py-4 text-lg font-semibold rounded-full text-slate-900 bg-white border-2 border-slate-200 hover:border-slate-900 transition-colors group"
-              >
-                Hizmetleri İncele
-                <ArrowRight className="ml-3 w-5 h-5 text-slate-400 group-hover:text-slate-900 transition-colors" />
-              </a>
-            </div>
+            <ScrollReveal delay={0.4}>
+              <div className="flex flex-col sm:flex-row gap-5">
+                <a
+                  href="#contact"
+                  className="inline-flex justify-center items-center px-8 py-4 text-lg font-semibold rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                >
+                  Projenizi Konuşalım
+                </a>
+                <a
+                  href="#services"
+                  className="inline-flex justify-center items-center px-8 py-4 text-lg font-semibold rounded-full text-slate-900 bg-white border-2 border-slate-200 hover:border-slate-900 transition-colors group"
+                >
+                  Hizmetleri İncele
+                  <ArrowRight className="ml-3 w-5 h-5 text-slate-400 group-hover:text-slate-900 transition-colors" />
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Abstract Clean SaaS Mockup */}

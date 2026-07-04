@@ -9,6 +9,7 @@ import About from '@/components/About';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export default function Home() {
   return (
@@ -16,13 +17,15 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <WhyTekNova />
-      <Process />
-      <Projects />
-      <Packages />
-      <About />
-      <FAQ />
-      <Contact />
+      
+      <ScrollReveal><WhyTekNova /></ScrollReveal>
+      <ScrollReveal><Process /></ScrollReveal>
+      <ScrollReveal><Projects /></ScrollReveal>
+      <ScrollReveal><Packages /></ScrollReveal>
+      <ScrollReveal><About /></ScrollReveal>
+      <ScrollReveal><FAQ /></ScrollReveal>
+      <ScrollReveal><Contact /></ScrollReveal>
+      
       <Footer />
     </main>
   );
