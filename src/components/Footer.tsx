@@ -36,8 +36,8 @@ export default function Footer() {
           <p className="mb-4 md:mb-0">
             © 2026 TekNova.
           </p>
-          <a href="mailto:info@teknova.com.tr" className="hover:text-white transition-colors">
-            info@teknova.com.tr
+          <a href="mailto:teknovabilgi@gmail.com" className="hover:text-white transition-colors">
+            teknovabilgi@gmail.com
           </a>
         </div>
       </div>

@@ -91,7 +91,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="mailto:info@teknova.com.tr"
+                href="mailto:teknovabilgi@gmail.com"
                 className="group flex items-center justify-between bg-slate-50 hover:bg-slate-100 border border-slate-100 text-slate-900 p-6 sm:p-8 rounded-[2rem] transition-colors"
               >
                 <div className="flex items-center space-x-6">
@@ -100,7 +100,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xl font-bold">E-posta</div>
-                    <div className="text-slate-500 font-medium">info@teknova.com.tr</div>
+                    <div className="text-slate-500 font-medium">teknovabilgi@gmail.com</div>
                   </div>
                 </div>
               </a>
